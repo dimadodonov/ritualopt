@@ -141,18 +141,6 @@ woocommerce_output_all_notices();
 						<?php woocommerce_template_single_add_to_cart(); ?>
 					</div>
 				</div>
-
-				<?php
-					$the_content = get_the_content();
-					if($the_content) :
-				?>
-				<div class="product-desc">
-					<div class="product-desc__title">
-						<h2>Описание</h2>
-					</div>
-					<?php the_content(); ?>
-				</div>
-				<?php endif; ?>
 			</div>
 		</div>
 

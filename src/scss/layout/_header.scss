@@ -75,6 +75,7 @@
         }
     }
 
+    &-favorite,
     &-cart {
         position: relative;
 
@@ -82,6 +83,7 @@
             position: absolute;
             top: -2px;
             right: -6px;
+            opacity: 0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -92,6 +94,10 @@
             color: #fff;
             font-size: 10px;
             line-height: 10px;
+
+            &.active {
+                opacity: 1;
+            }
         }
 
         svg {

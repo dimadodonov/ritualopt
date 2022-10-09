@@ -24,14 +24,12 @@ export default () => {
                 type: 'POST',
                 dataType: 'json',
                 beforeSend: function (xhr) {
-                    console.log('Ищем...');
                     const productPopupLoader =
                         '<div class="popup-product__loader"></div>';
                     $('body').append(productPopupLoader);
                     $('.popup-product__overlay').show();
                 },
                 success: function (data) {
-                    console.log();
                     const productPopup = $('.popup-product');
                     productPopup.find('.popup-product__content').html(data.out);
                     productPopup
@@ -42,10 +40,10 @@ export default () => {
                     console.log('error', arguments);
                 },
                 complete: function (xhr) {
-                    console.log('Готово...');
                     $('body').find('.popup-product__loader').remove();
                     $('.popup-product').show();
                     $('.popup-product__overlay').show();
+                    $('.popup-product-btn').css('display', 'flex');
 
                     const galleryThumbs = new Swiper('.product-slider-thumbs', {
                         spaceBetween: 16,
@@ -83,39 +81,99 @@ export default () => {
             });
         }
 
+        // Закрываем popup при клике по .popup-product__overlay
         $(document).on('click', '.popup-product__overlay', function () {
             $(this).hide();
             $('.popup-product').hide().find('.popup-product__content').html('');
         });
 
+        // Закрываем popup при клике по .popup-product__close
         $(document).on('click', '.popup-product__close', function () {
             $('.popup-product__overlay').hide();
             $('.popup-product').hide().find('.popup-product__content').html('');
         });
 
+        // Отслеживаем variation в нутри .popup-product .single_variation_wrap
         $(document).on(
             'show_variation',
             '.popup-product .single_variation_wrap',
             function (event, variation) {
-                // if (variation.image.url) {
-                //     const variationImage =
-                //         '<div class="swiper-slide">' +
-                //         '<a href="' +
-                //         variation.image.url +
-                //         '" data-fancybox="gallery"><figure class="product-slider-big__item">' +
-                //         '<img src="' +
-                //         variation.image.url +
-                //         '" loading="lazy"></figure></a>' +
-                //         '</div>';
-                //     // $('p.price').html(variation.price_html);
-                //     $('.product-slider-big .swiper-slide')
-                //         .first()
-                //         .html(variationImage);
-                // }
+                if (variation.image.url) {
+                    const variationImage =
+                        '<div class="swiper-slide">' +
+                        '<a href="' +
+                        variation.image.url +
+                        '" data-fancybox="gallery"><figure class="product-slider-big__item">' +
+                        '<img src="' +
+                        variation.image.url +
+                        '" loading="lazy"></figure></a>' +
+                        '</div>';
+                    $('.product-slider-big .swiper-slide')
+                        .first()
+                        .html(variationImage);
+                }
+                $('p.price').html(variation.price_html);
+                $('.popup-product-btn').attr(
+                    'data-variation-id',
+                    variation.variation_id
+                );
                 console.log(variation);
             }
         );
 
+        $(document).on('click', '.product-variable-ajax', function (e) {
+            e.preventDefault();
+
+            const productId = $(this).attr('data-product-id'),
+                quantity = $(this).attr('data-quantity'),
+                variationId = $(this).attr('data-variation-id');
+
+            if (variationId != 0 || variationId < 0) {
+                ajaxAddProduct(productId, quantity, variationId);
+            } else {
+                alert(
+                    'Выберите опции товара перед его добавлением в вашу корзину.'
+                );
+            }
+        });
+
+        function ajaxAddProduct(productId, quantity, variationId) {
+            var data = {
+                action: 'add_product_in_popup',
+                productId: productId,
+                quantity: quantity,
+                variationId: variationId,
+                nonce: search_form.nonce,
+            };
+            $.ajax({
+                url: search_form.ajaxurl,
+                data: data,
+                type: 'POST',
+                dataType: 'json',
+                beforeSend: function (xhr) {
+                    const productPopupLoader =
+                        '<div class="popup-product__loader"></div>';
+                    $('.popup-product-btn').addClass('loading');
+                },
+                success: function (data) {},
+                error: function () {
+                    console.log('error', arguments);
+                },
+                complete: function (xhr) {
+                    $('.popup-product-btn').removeClass('loading');
+                    $('.popup-product').hide();
+                    $('.popup-product__overlay').hide();
+                    $('.popup-product__content').html('');
+                    $(document.body).trigger('wc_fragment_refresh');
+                },
+            });
+        }
+
+        // $(document.body).on('added_to_cart', function () {
+        //     alert('testing!');
+        // });
+
+        // Длбавляем клас для выбранной категории
         const hitsLi = $('.hits ul li');
         if (hitsLi) {
             hitsLi.on('click', function () {
@@ -125,6 +183,8 @@ export default () => {
                 $(this).addClass('active');
             });
         }
+
+        // Ajax поиск по товарам
         $('.search input').on('keyup', function () {
             var search = $(this).val();
             if (search.length < 3) {
@@ -167,6 +227,7 @@ export default () => {
             console.log(search);
         });
 
+        // Очищаем поиск при клике по .search-panel__close
         $('.search-panel__close').on('click', function () {
             $(this).hide();
             $('.search-panel__search').show();
@@ -174,6 +235,7 @@ export default () => {
             $('.search input').empty().val('');
         });
 
+        // Очищаем поиск при клике вне #search_form_result
         $(document).on('mouseup', function (e) {
             // событие клика по веб-документу
             var div = $('.header-search'); // тут указываем ID элемента
@@ -189,6 +251,7 @@ export default () => {
             }
         });
 
+        // Init Gallery Product Images
         $('[data-fancybox]').fancybox({
             clickOutside: 'close',
             buttons: [
@@ -207,6 +270,8 @@ export default () => {
                 clickSlide: 'close',
             },
         });
+
+        // Добавляем работу кол-во в карточке товара
         var proQty = $('.pro-qty');
         // proQty.append('<div class="inc qty-btn">+</div>');
         // proQty.append('<div class= "dec qty-btn">-</div>');
@@ -233,48 +298,9 @@ export default () => {
             btnOrder.attr('data-quantity', newVal);
         });
 
+        // Авточатически обновляем корзину при изменении ко-ао товара в корзине
         $(document).on('click', '.qty-btn', function () {
             $("[name='update_cart']").trigger('click');
-        });
-
-        $('div.woocommerce').on('change', '.qty', function () {
-            const minValue = $(this).attr('min');
-            const count = $(this).val();
-
-            if (+count <= +minValue) {
-                $(this).val(minValue);
-                // return false;
-                $("[name='update_cart']").trigger('click');
-            } else {
-                $("[name='update_cart']").trigger('click');
-            }
-        });
-
-        $('.woocommerce').on('change', '.qty', function () {
-            const minValue = $(this).attr('min');
-            const count = $(this).val();
-
-            if (+count <= +minValue) {
-                $(this).val(minValue);
-                // return false;
-            }
-        });
-
-        $('.variations-btn .attached').on('click', function () {
-            if ($(this).hasClass('active')) {
-                return;
-            }
-
-            var el = $(this),
-                name = el.text(),
-                val = el.data('value'),
-                parent = el.parents('.variations-btn').data('id');
-
-            $('.variations-btn .attached').removeClass('active');
-            el.addClass('active');
-
-            $('#' + parent).val(val);
-            $('#' + parent).change();
         });
 
         $('.single_variation_wrap').on(
@@ -290,7 +316,7 @@ export default () => {
                         variation.image.url +
                         '" loading="lazy"></figure></a>' +
                         '</div>';
-                    // $('p.price').html(variation.price_html);
+                    $('p.price').html(variation.price_html);
                     $('.product-slider-big .swiper-slide')
                         .first()
                         .html(variationImage);
@@ -310,39 +336,4 @@ export default () => {
 
         navSubmenuA.appendChild(navSubmenuArrow);
     });
-
-    function login() {
-        const loginForm = document.getElementById('login');
-        const registerForm = document.getElementById('register');
-
-        if (loginForm) {
-            const wcNoticesWrap = document.querySelector(
-                '.woocommerce-notices-wrapper'
-            );
-            if (localStorage.getItem('register') !== null) {
-                loginForm.classList.remove('active');
-                registerForm.classList.add('active');
-            } else {
-                loginForm.classList.add('active');
-                registerForm.classList.remove('active');
-            }
-            document
-                .querySelector('.login-link-reg')
-                .addEventListener('click', () => {
-                    loginForm.classList.remove('active');
-                    registerForm.classList.add('active');
-                    localStorage.setItem('register', 'yes');
-                });
-
-            document
-                .querySelector('.login-link-login')
-                .addEventListener('click', () => {
-                    loginForm.classList.add('active');
-                    registerForm.classList.remove('active');
-                    localStorage.removeItem('register');
-                    wcNoticesWrap.innerHTML = '';
-                });
-        }
-    }
-    login();
 };

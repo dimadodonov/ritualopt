@@ -34,29 +34,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 		<table class="variations" cellspacing="0">
 			<tbody>
 				<?php foreach ( $attributes as $attribute_name => $options ) : ?>
-					
-					<?php if( 'pa_tsvet' == $attribute_name ) : ?>
 					<tr>
-						<div class="product-attr product-attr-variations">
-							<div class="product-attr__title">Выберите цвет</div>
-							<div class="variations-btn" data-id="<?php echo $attribute_name; ?>">
-							<?php
-
-								foreach ($options as $value) {
-									$term = get_term_by('slug', $value, $attribute_name);
-									echo '<div class="attached" data-value="' . $term->slug . '">';
-									echo '<div class="attached-color attached-color-' . $term->slug . '"></div>';
-									echo '<div class="attached-name" data-value="' . $term->slug . '">' . $term->name . '</div>';
-									echo '</div>';
-								}
-
-							?>
-							</div>
-						</div>
-					</tr>
-					<?php endif; ?>
-
-					<tr <?php if( 'pa_tsvet' == $attribute_name ) : echo 'style="display: none;"'; endif; ?>>
 						<td class="label"><label for="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>"><?php echo wc_attribute_label( $attribute_name ); // WPCS: XSS ok. ?></label></td>
 						<td class="value">
 							<?php

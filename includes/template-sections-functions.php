@@ -33,8 +33,10 @@ if ( ! function_exists( 'hook_header' ) ) {
                 </div>
 
                 <div class="header-shop">
-                    <a href="<?php echo esc_url( site_url('/wishlist') )?>" class="header-shop__item">
+                    <a class="header-shop__item header-favorite" href="<?php echo esc_url( YITH_WCWL()->get_wishlist_url() ); ?>">
                         <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--favorite"/></svg>
+                        <?php $favoriteWcwl = yith_wcwl_count_all_products(); ?>
+                        <div class="count yith-wcwl-items-count <?php if ($favoriteWcwl > 0) { echo ' active';} ?>"><?php echo esc_html( yith_wcwl_count_all_products() ); ?></div>
                     </a>
                     <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" class="header-shop__item">
                         <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--user"/></svg>
@@ -471,11 +473,7 @@ if ( ! function_exists( 'hook_fixed_btn' ) ) {
                     <div class="count cart-customlocation<?php if ($cartEmpty > 0) { echo ' active';} ?>"><?php echo wp_kses_data(WC()->cart->get_cart_contents_count()); ?></div>
                 </div>
             </a>
-            <a href="<?php echo esc_url( site_url('/wishlist') )?>" class="fixed-btn__item">
-                <div class="fixed-btn__inner">
-                    <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--favorite"/></svg>
-                </div>
-            </a>
+            <?php echo do_shortcode('[yith_wcwl_items_count]'); ?>
             <?php } ?>
         </div>
         <?php
