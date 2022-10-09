@@ -194,13 +194,26 @@
             left: 50%;
             z-index: 110;
             width: 100%;
-            max-width: 1470px;
+            max-width: 1010px;
             margin: 0 auto;
             padding: 50px;
             transform: translate(-50%, -50%);
             border-radius: 5px;
             background-color: #fff;
             box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.1);
+
+            .product__wrap {
+                margin: 0 !important;
+            }
+
+            .product-slider-big {
+                width: 450px;
+                min-width: 450px;
+                max-width: 450px;
+                height: 100%;
+                max-height: 450px;
+                min-height: 450px;
+            }
 
             button.btn-order {
                 display: none !important;

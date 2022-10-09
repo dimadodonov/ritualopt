@@ -26,7 +26,6 @@ $product_id = $product->get_id();
  * @hooked woocommerce_output_all_notices - 10
  */
 do_action( 'woocommerce_before_single_product' );
-woocommerce_output_all_notices();
 
 ?>
 
@@ -84,40 +83,6 @@ woocommerce_output_all_notices();
 								</div>
 							</div>
 
-							<div class="swiper product-slider-thumbs">
-								<div class="swiper-wrapper">
-									<div class="swiper-slide">
-
-										<figure class="product-slider-thumbs__item">
-											<?php
-												if ( $product->get_image_id() ) :
-													echo wp_get_attachment_image( $product_image_id, 'thumbnail' );
-												endif;
-											?>
-										</figure>
-
-									</div>
-
-									<?php
-										if( $product_gallery_ids ) :
-											foreach( $product_gallery_ids as $product_gallery_id ) : ?>
-												<div class="swiper-slide">
-
-													<figure class="product-slider-thumbs__item">
-														<?php
-															if ( $product->get_image_id() ) :
-																echo wp_get_attachment_image( $product_gallery_id, 'thumbnail' );
-															endif;
-														?>
-													</figure>
-
-												</div>
-											<?php endforeach;
-										endif;
-									?>
-								</div>
-							</div>
-
 							<?php else : ?>
 
 								<div class="swiper product-slider product-slider-big">
@@ -145,9 +110,5 @@ woocommerce_output_all_notices();
 		</div>
 
 	</div>
-
-	<?php
-		woocommerce_output_related_products();
-	?>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>
