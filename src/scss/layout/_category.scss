@@ -1,0 +1,36 @@
+.category {
+    &__wrap {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+    }
+
+    &-item {
+        position: relative;
+        width: calc(1 / 3 * 100% - 30px);
+        margin: 0 15px 30px;
+        overflow: hidden;
+        border-radius: 5px;
+
+        &__title {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            z-index: 10;
+            font-family: $f-medium;
+            font-size: 22px;
+            line-height: 120%;
+        }
+
+        &__image {
+            position: relative;
+
+            img {
+                width: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: right bottom;
+            }
+        }
+    }
+}

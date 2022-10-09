@@ -1,0 +1,103 @@
+.header {
+    position: relative;
+
+    &__wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1470px;
+        margin: 0 auto;
+
+        @include hd-block() {
+            padding: 0 20px;
+        }
+    }
+
+    &-logo {
+        margin: 25px 0;
+    }
+
+    &-contacts {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    &-phone {
+        position: relative;
+
+        &__wrpa {
+            display: flex;
+        }
+
+        &__icon {
+            margin-right: 10px;
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        &__number {
+            color: $color-text;
+            font-family: $f-medium;
+            font-size: 22px;
+            line-height: 21px;
+        }
+
+        span {
+            position: absolute;
+            opacity: 0.8;
+            margin-left: 30px;
+            font-size: 14px;
+            line-height: 13px;
+        }
+    }
+
+    &-mail {
+        margin-left: 70px;
+    }
+
+    &-shop {
+        display: flex;
+
+        &__item {
+            & + & {
+                margin-left: 50px;
+            }
+
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+
+    &-cart {
+        position: relative;
+
+        .count {
+            position: absolute;
+            top: -2px;
+            right: -6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 14px;
+            height: 14px;
+            border-radius: 12px;
+            background-color: $color-danger;
+            color: #fff;
+            font-size: 10px;
+            line-height: 10px;
+        }
+
+        svg {
+            color: $color-text;
+        }
+    }
+}
+
+// .header

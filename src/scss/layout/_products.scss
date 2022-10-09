@@ -1,0 +1,45 @@
+.products {
+    position: relative;
+    background-color: #fff;
+
+    &__title {
+        // margin-top: 40px;
+
+        h1 {
+            font-family: $f-bold;
+            font-size: 22px;
+            font-weight: normal;
+            letter-spacing: 0.03em;
+            line-height: 26px;
+        }
+    }
+
+    &__loop {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+
+        .product-card__loop {
+            width: calc(1 / 5 * 100% - 30px);
+
+            // margin: 0 15px 15px;
+
+            margin: 0 15px 40px;
+
+            @include lg-block() {
+                width: calc(1 / 4 * 100% - 30px);
+            }
+
+            @include md-block() {
+                width: calc(1 / 3 * 100% - 30px);
+            }
+
+            @include sm-block() {
+                width: calc(50% - 30px);
+                margin: 0 15px 40px;
+            }
+        }
+    }
+}
+
+// .products

@@ -1,0 +1,28 @@
+.badge {
+    display: flex;
+    margin-top: 10px;
+
+    &__item {
+        padding: 5px 13px 6px;
+        border-radius: 5px;
+        background-color: gray;
+        color: #fff;
+        font-family: $f-medium;
+        font-size: 14px;
+        letter-spacing: 0.03em;
+        line-height: 13px;
+        text-align: center;
+
+        & + & {
+            margin-left: 10px;
+        }
+    }
+
+    &__proc {
+        background-color: $color-danger;
+    }
+
+    &__handmade {
+        background-color: $color-info;
+    }
+}

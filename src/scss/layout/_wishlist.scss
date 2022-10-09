@@ -1,0 +1,35 @@
+.wishlist {
+    position: relative;
+
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 50px -15px;
+    }
+
+    &-item {
+        flex: 0 0 25%;
+        max-width: 25%;
+        margin-bottom: 40px;
+        padding-right: 15px;
+        padding-left: 15px;
+        min-height: 1px;
+
+        @include xs-block() {
+            flex: 0 0 50%;
+            max-width: 50% !important;
+        }
+
+        .products-btn-hover {
+            @include xs-block() {
+                display: none !important;
+            }
+        }
+    }
+}
+
+// .wishlist
+
+.woocommerce-wishlist .woocommerce-message {
+    display: none;
+}

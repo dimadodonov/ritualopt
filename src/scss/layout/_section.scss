@@ -1,0 +1,53 @@
+.section {
+    position: relative;
+
+    &__title {
+        margin-bottom: 40px;
+        font-family: $f-bold;
+        font-size: 30px;
+        font-weight: normal;
+        letter-spacing: 0.03em;
+        line-height: 26px;
+
+        &-center {
+            text-align: center;
+        }
+
+        p {
+            opacity: 0.8;
+            margin-top: 10px;
+            font-family: $f;
+            font-size: 16px;
+            letter-spacing: 0.03em;
+            line-height: 24px;
+            text-align: center;
+        }
+    }
+
+    &__wrap {
+        width: 100%;
+        max-width: 1470px;
+        margin: 0 auto;
+
+        @include hd-block() {
+            padding: 0 20px;
+        }
+    }
+
+    &-category {
+        margin: 50px 0;
+
+        &__wrap {
+            display: flex;
+        }
+    }
+
+    &-edge {
+        & + & {
+            display: block;
+            padding-top: 50px;
+        }
+    }
+}
+
+// .section
