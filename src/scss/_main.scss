@@ -177,3 +177,35 @@
     .select2-selection__arrow {
     top: 7px !important;
 }
+
+#yith-wcwl-popup-message {
+    width: 100%;
+    max-width: 320px;
+    margin-left: 0 !important;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    font-family: $f-medium;
+    font-weight: normal;
+    line-height: 150%;
+
+    @include xs-block() {
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        transform: translate(0, 0);
+        background-color: $color-accent;
+        color: #fff;
+    }
+}
+
+p.wishlist-empty,
+table.wishlist_table tbody td.wishlist-empty {
+    margin: 0 !important;
+    text-align: left;
+}
+
+.wishlist_view {
+    display: flex;
+    flex-wrap: wrap;
+}
