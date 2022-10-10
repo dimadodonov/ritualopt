@@ -14,29 +14,30 @@
         }
     }
 
+    &__wrap {
+        display: flex;
+    }
+
+    &__inner {
+        margin-left: 30px;
+    }
+
     &__loop {
         display: flex;
         flex-wrap: wrap;
-        margin: 0 -15px;
+        margin: 0 -5px;
 
         .product-card__loop {
-            width: calc(1 / 5 * 100% - 30px);
-
-            // margin: 0 15px 15px;
-
-            margin: 0 15px 40px;
-
-            @include lg-block() {
-                width: calc(1 / 4 * 100% - 30px);
-            }
+            width: calc(1 / 4 * 100% - 10px);
+            margin: 0 5px 10px;
 
             @include md-block() {
-                width: calc(1 / 3 * 100% - 30px);
+                width: calc(1 / 3 * 100% - 10px);
             }
 
             @include sm-block() {
-                width: calc(50% - 30px);
-                margin: 0 15px 40px;
+                width: calc(50% - 10px);
+                margin: 0 5px 10px;
             }
         }
     }

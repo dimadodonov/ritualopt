@@ -6,11 +6,15 @@ import Swiper from 'swiper/swiper-bundle.min';
 
 export default () => {
     (function ($) {
-        $('.product_type_variable.btn-order-loop').on('click', function (e) {
-            e.preventDefault();
-            const productId = $(this).attr('data-product_id');
-            ajaxId(productId);
-        });
+        $(document).on(
+            'click',
+            '.product_type_variable.btn-order-loop',
+            function (e) {
+                e.preventDefault();
+                const productId = $(this).attr('data-product_id');
+                ajaxId(productId);
+            }
+        );
 
         function ajaxId(id) {
             var data = {

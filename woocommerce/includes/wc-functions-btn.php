@@ -38,7 +38,7 @@ function woocommerce_custom_add_to_cart_class ( $html, $product, $args ) {
             esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : $quantity ),
             esc_attr( isset( $args['class'] ) ? $args['class'] : 'button' ),
             isset( $args['attributes'] ) ? wc_implode_html_attributes( $args['attributes'] ) : '',
-            esc_html( 'Купить' ),
+            esc_html( 'В корзину' ),
         );
     }
 

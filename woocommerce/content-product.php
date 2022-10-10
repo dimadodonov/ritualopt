@@ -30,9 +30,10 @@ $post_id = get_the_ID();
 ?>
 
 <div <?php wc_product_class('product-card product-card__loop'); ?>>
+	<?php echo do_shortcode( '[yith_wcwl_add_to_wishlist]' ); ?>
     <a href="<?php echo $product->get_permalink(); ?>" title="<?php echo $product->get_title(); ?>" class="product-card__wrap">
 		<figure class="product-card__thumb">
-			<?php echo $product->get_image(); ?>
+			<?php echo $product->get_image('thumbnail'); ?>
 		</figure>
 		<div class="product-card__name"><?php echo $product->get_title(); ?></div>
 		<div class="product-card__prices">
@@ -59,4 +60,8 @@ $post_id = get_the_ID();
 			?>
 		</div>
 	</a>
+	<?php if($price) { ?>
+		<?php woocommerce_template_loop_add_to_cart(); ?>
+	<?php } ?>
+	
 </div>

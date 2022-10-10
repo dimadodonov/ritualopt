@@ -41,7 +41,7 @@ global $product;
 		data-product-id="<?php echo absint( $product->get_id() ); ?>"
 		data-variation-id="0"
 		data-quantity="1"
-	><span>Купить</span></div>
+	><span>В корзину</span></div>
 	<button type="submit" class="btn btn-order single_add_to_cart_button button alt"><span><?php echo esc_html( $product->single_add_to_cart_text() ); ?></span></button>
 
 	<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>

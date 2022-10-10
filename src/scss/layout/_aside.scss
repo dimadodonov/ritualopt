@@ -1,7 +1,13 @@
 .aside {
     position: relative;
+    flex: 0 0 345px;
     width: 100%;
     max-width: 345px;
+
+    &-nav {
+        position: sticky;
+        top: 30px;
+    }
 
     ul {
         position: sticky;
@@ -19,8 +25,8 @@
                 border-bottom: 1px solid transparent;
             }
 
-            &.current-product_cat-parent > .sub-menu,
-            &.current-menu-item > .sub-menu {
+            &.current-product_cat-parent>.sub-menu,
+            &.current-menu-item>.sub-menu {
                 display: block;
             }
 
@@ -51,7 +57,7 @@
                     border-bottom: 1px solid transparent;
                 }
 
-                &.current-menu-item > a {
+                &.current-menu-item>a {
                     background: rgba(255, 255, 255, 0.4);
                 }
 

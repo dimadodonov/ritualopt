@@ -18,18 +18,20 @@
     .swiper {
         padding-bottom: 30px;
 
+        &-slide {
+            display: flex;
+            height: auto;
+        }
+
         &-pagination {
             bottom: 0 !important;
 
             &-bullet {
+
                 &-active {
                     background: $color-accent;
                 }
             }
-        }
-
-        .yith-wcwl-add-to-wishlist {
-            margin-top: 0 !important;
         }
     }
 
@@ -89,7 +91,7 @@
         background: $color-accent;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 
-        & + & {
+        &+& {
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
