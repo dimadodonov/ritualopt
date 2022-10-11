@@ -204,7 +204,6 @@
     }
 
     &-slider {
-
         &-big {
             width: 595px;
             min-width: 463px;
@@ -293,7 +292,6 @@
         }
 
         &.on {
-
             svg {
                 fill: #ef0502;
             }
@@ -336,7 +334,6 @@
     }
 
     &-remove {
-
         &.position {
             position: absolute;
             top: -10px;
@@ -423,7 +420,7 @@
                 border-color: #1d1a1a;
             }
 
-            &+.attached {
+            & + .attached {
                 margin-left: 10px;
             }
 
@@ -559,7 +556,7 @@
             }
         }
 
-        &+& {
+        & + & {
             display: flex;
             flex-direction: column;
             margin-top: 50px;
@@ -625,7 +622,6 @@
     }
 
     .price {
-
         span {
             color: $color-text;
             font-family: $f-bold;
@@ -644,6 +640,7 @@
     }
 
     .single_variation_wrap,
+    .product-form,
     .variations_form {
         margin-top: 30px;
     }
@@ -660,13 +657,19 @@
     max-width: 410px !important;
 }
 
-.woo-variation-swatches .wvs-style-squared.variable-items-wrapper .color-variable-item,
-.woo-variation-swatches .wvs-style-squared.variable-items-wrapper .image-variable-item {
+.woo-variation-swatches
+    .wvs-style-squared.variable-items-wrapper
+    .color-variable-item,
+.woo-variation-swatches
+    .wvs-style-squared.variable-items-wrapper
+    .image-variable-item {
     width: 50px;
     height: 50px;
 }
 
-.woo-variation-swatches .wvs-style-squared.variable-items-wrapper .button-variable-item {
+.woo-variation-swatches
+    .wvs-style-squared.variable-items-wrapper
+    .button-variable-item {
     width: 83px !important;
     height: 50px;
 }

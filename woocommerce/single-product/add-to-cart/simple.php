@@ -32,14 +32,11 @@ if ( $product->is_in_stock() ) : ?>
 	<form class="cart product-form" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data'>
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 		
-		<div class="product-group">
-		<?php
+		<?php woocommerce_template_single_price(); ?>
 
-		echo '<div class="product-group__wrap">';
-			echo '<div class="product-group__price">';
-			woocommerce_template_single_price();
-			echo '</div>';
-		echo '</div>';
+		<div class="product-group">
+
+		<?php
 
 		do_action( 'woocommerce_before_add_to_cart_quantity' );
 		woocommerce_quantity_input(
@@ -53,6 +50,9 @@ if ( $product->is_in_stock() ) : ?>
 		do_action( 'woocommerce_after_add_to_cart_quantity' );
 
 		?>
+		<div class="product-wishlist-single">
+			<?php echo do_shortcode( '[yith_wcwl_add_to_wishlist]' ); ?>
+		</div>
 		<?php
 		
 		$id = $product->get_id();
