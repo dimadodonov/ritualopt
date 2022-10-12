@@ -41,7 +41,13 @@ get_header();
                     ?>
                 </div>
 			</div>
-            
+			<div class="page-blog__image">
+				<picture>
+					<source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/page/about/about.webp" type="image/webp">
+					<source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/page/about/about.jpg" type="image/jpg">
+					<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/page/about/about.jpg" alt="">
+				</picture>
+            </div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

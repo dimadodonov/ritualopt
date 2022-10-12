@@ -26,7 +26,7 @@ function search_ajax_action_callback() {
 
         while ( $query_ajax->have_posts() ) {
             $query_ajax->the_post();
-            wc_get_template_part( 'content', 'product' );
+            wc_get_template_part( 'content', 'product-search' );
         }
 
         echo '</div></div><div class="search-result__link"><a class="btn" href="' . site_url( '/catalog' ) . '" title="Перейти в каталог">Перейти в каталог</a></div>';

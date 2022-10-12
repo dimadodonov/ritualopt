@@ -98,7 +98,7 @@
         "notyf": "^3.10.0",
         "smart-grid": "^2.1.2",
         "svg4everybody": "^2.1.9",
-        "swiper": "^8.4.3",
+        "swiper": "^8.4.4",
         "vanilla-lazyload": "^17.8.3"
     }
 }

@@ -90,6 +90,40 @@ if ( ! function_exists( 'hook_footer' ) ) {
         ?>
             <footer id="footer" class="footer">
                 <div class="container">
+                    <div class="footer__wrap">
+                        <div class="footer__col">
+                            <?php footer_one(); ?>
+                        </div>
+                        <div class="footer__col">
+                            <?php footer_two(); ?>
+                        </div>
+                        <div class="footer__col">
+                            <?php footer_three(); ?>
+                        </div>
+                        <div class="footer__col">
+                            <div class="footer-nav">
+                                <ul>
+                                    <li class="footer-nav__head">
+                                        <a>Связаться с нами</a>
+                                    </li>
+                                    <li>
+                                        <a href="tel:+79260400495">+7 (926) 040-04-95</a>
+                                        <small>Пн-Пт, с 09:00 до 17:00</small>
+                                    </li>
+                                    <li>
+                                        <a href="mailto:r-vitrina@mail.ru">r-vitrina@mail.ru</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer__bottom">
+                        <div class="footer-copy">
+                            <div class="footer-copy__item">Ритуальная Витрина</div>
+                            <div class="footer-copy__item">2010 — <?php echo date('Y'); ?> © Ритуальная Витрина — изготовление и поставка ритуальной продукции оптом</div>                            
+                        </div>
+                        <a class="footer-dev" href="https://mitroliti.ru/" target="_blank" title="Сайт разработан в компании - mitroliti">Разработано в <strong>Mitroliti</strong>.</a>
+                    </div>
                 </div>
             </footer>
         <?php

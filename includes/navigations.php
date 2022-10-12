@@ -7,7 +7,9 @@ if ( ! defined( 'ABSPATH')) {
 
 register_nav_menus( array(
     'general' => 'Меню для компьютера',
-    'footer' => 'Меню в подвале',
+    'footer_one' => 'Меню в подвале 1',
+    'footer_two' => 'Меню в подвале 2',
+    'footer_three' => 'Меню в подвале 3',
     'cat' => 'Категории товаров',
     'aside' => 'Сайтбар'
 ));
@@ -24,13 +26,33 @@ function header_menu_general() {
     ));
 }
 
-function header_mob_general() {
+function footer_one() {
     wp_nav_menu( array(
-        'theme_location' => 'footer',
-        'menu_id' => 'header_mob_general',
+        'theme_location' => 'footer_one',
+        'menu_id' => 'footer_one',
         'menu_class'      => '',
 	    'container'       => 'div',
-        'container_class' => 'header_mob_general',
+        'container_class' => 'footer-nav',
+        'container_id'    => '',
+    ));
+}
+function footer_two() {
+    wp_nav_menu( array(
+        'theme_location' => 'footer_two',
+        'menu_id' => 'footer_two',
+        'menu_class'      => '',
+	    'container'       => 'div',
+        'container_class' => 'footer-nav',
+        'container_id'    => '',
+    ));
+}
+function footer_three() {
+    wp_nav_menu( array(
+        'theme_location' => 'footer_three',
+        'menu_id' => 'footer_three',
+        'menu_class'      => '',
+	    'container'       => 'div',
+        'container_class' => 'footer-nav',
         'container_id'    => '',
     ));
 }

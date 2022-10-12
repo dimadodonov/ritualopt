@@ -43,7 +43,7 @@ if ( class_exists( 'WooCommerce' ) ) {
     require get_template_directory() . '/includes/ajax.php';
 
     require get_template_directory() . '/includes/woocommerce.php';
-    require get_template_directory() . '/includes/woocommerce-fields.php';
+    // require get_template_directory() . '/includes/woocommerce-fields.php';
     require get_template_directory() . '/woocommerce/includes/wc-functions.php';
     require get_template_directory() . '/woocommerce/includes/wc-functions-cart.php';
     require get_template_directory() . '/woocommerce/includes/wc-functions-account.php';

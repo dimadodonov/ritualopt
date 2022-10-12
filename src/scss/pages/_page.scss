@@ -65,7 +65,7 @@
     }
 
     h1 {
-        margin-top: 51px;
+        margin-top: 30px;
         color: #5a4f49;
         font-family: $f-bold;
         font-size: 40px;
@@ -80,6 +80,16 @@
         width: 100%;
         max-width: 820px;
         margin: 0 auto 50px;
+
+        &__image {
+            width: 100%;
+            max-width: 1230px;
+            margin: 50px auto;
+        }
+
+        .breadcrumbs {
+            text-align: center;
+        }
 
         h1 {
             margin-bottom: 20px;
