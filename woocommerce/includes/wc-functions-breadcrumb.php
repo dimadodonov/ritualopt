@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH')) {
 
 
 // Remove default WooCommerce breadcrumbs and add Yoast ones instead
-// remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0 );
+remove_action( 'woocommerce_before_main_content','woocommerce_breadcrumb', 20, 0 );
 
 add_action( 'woocommerce_before_main_content','wrap_breadcrumb_before', 15, 0);
 add_action( 'woocommerce_before_main_content','wrap_breadcrumb_after', 25, 0);
@@ -22,7 +22,7 @@ if (!function_exists('wrap_breadcrumb_after') ) {
     }
 }
 
-// add_action( 'woocommerce_before_main_content','my_yoast_breadcrumb', 20, 0);
+add_action( 'woocommerce_before_main_content','my_yoast_breadcrumb', 20, 0);
 
 if (!function_exists('my_yoast_breadcrumb') ) {
     function my_yoast_breadcrumb() {
