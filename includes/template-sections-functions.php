@@ -380,25 +380,60 @@ if ( ! function_exists( 'hook_edge' ) ) {
                 </div>
                 <div class="edge__wrap">
                     <div class="edge-item edge-item__col-4">
-                        <div class="edge-item__image">
-                        </div>
-                        <div class="edge-item__title">Диплом за участие в выставке «Некрополь 2013» г. Находка</div>
+                        <a class="edge-item__image" href="<?php echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-1.jpg" data-fancybox="doc">
+                            <picture>
+                                <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-1.webp" type="image/webp">
+                                <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-1.jpg" type="image/jpg">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-1.jpg" alt="Диплом за участие в выставке «Некрополь 2013» г. Находка">
+                            </picture>
+                        </a>
+                        <div class="edge-item__title">Диплом за участие в выставке «Некрополь 2013»</div>
+                        <div class="edge-item__subtitle">г. Находка</div>
                     </div>
                     <div class="edge-item edge-item__col-4">
-                        <div class="edge-item__image">
-                        </div>
-                        <div class="edge-item__title">Конкурс «Золотая Медаль» Номинация: Цветы, фоны, венки. Выставка «Некрополь 2013» г. Находка</div>
+                        <a class="edge-item__image" href="<?php echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-2.jpg" data-fancybox="doc">
+                            <picture>
+                                <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-2.webp" type="image/webp">
+                                <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-2.jpg" type="image/jpg">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-2.jpg" alt="Диплом за участие в выставке «Некрополь 2013» г. Находка">
+                            </picture>
+                        </a>
+                        <div class="edge-item__title">Конкурс «Золотая Медаль» Номинация: Цветы, фоны, венки. Выставка «Некрополь 2013»</div>
+                        <div class="edge-item__subtitle">г. Находка</div>
                     </div>
                     <div class="edge-item edge-item__col-4">
-                        <div class="edge-item__image">
-                        </div>
-                        <div class="edge-item__title">Конкурс «Золотая Медаль» Номинация: Цветы, фоны, венки. Выставка «Некрополь 2014» г. Москва</div>
+                        <a class="edge-item__image" href="<?php echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-3.jpg" data-fancybox="doc">
+                            <picture>
+                                <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-3.webp" type="image/webp">
+                                <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-3.jpg" type="image/jpg">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-3.jpg" alt="Диплом за участие в выставке «Некрополь 2013» г. Находка">
+                            </picture>
+                        </a>
+                        <div class="edge-item__title">Конкурс «Золотая Медаль» Номинация: Цветы, фоны, венки. Выставка «Некрополь 2014»</div>
+                        <div class="edge-item__subtitle"> г. Москва</div>
                     </div>
                     <div class="edge-item edge-item__col-4">
-                        <div class="edge-item__image">
-                        </div>
-                        <div class="edge-item__title">I Место, VI Специализированная выставка «Белый Тополь 2014» г. Новосибирск</div>
+                        <a class="edge-item__image" href="<?php echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-4.jpg" data-fancybox="doc">
+                            <picture>
+                                <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-4.webp" type="image/webp">
+                                <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-4.jpg" type="image/jpg">
+                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-4.jpg" alt="Диплом за участие в выставке «Некрополь 2013» г. Находка">
+                            </picture>
+                        </a>
+                        <div class="edge-item__title">I Место, VI Специализированная выставка «Белый Тополь 2014»</div>
+                        <div class="edge-item__subtitle"> г. Новосибирск</div>
                     </div>
+                    <!-- <div class="edge-item edge-item__col-4">
+                        <a class="edge-item__image" href="<?php //echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-5.jpg" data-fancybox="doc">
+                            <picture>
+                                <source srcset="<?php //echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-5.webp" type="image/webp">
+                                <source srcset="<?php //echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-5.jpg" type="image/jpg">
+                                <img loading="lazy" src="<?php //echo get_template_directory_uri(); ?>/assets/images/section/doc/doc-5.jpg" alt="Диплом за участие в выставке «Некрополь 2013» г. Находка">
+                            </picture>
+                        </a>
+                        <div class="edge-item__title">I Место, VI Специализированная выставка «Белый Тополь 2014» </div>
+                        <div class="edge-item__subtitle">г. Новосибирск</div>
+                    </div> -->
                 </div>
             </div>
         </section>
