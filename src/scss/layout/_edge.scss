@@ -64,12 +64,13 @@
             width: 72px;
             height: 72px;
             margin-bottom: 25px;
+            padding: 15px;
             border-radius: 10px;
             background-color: $color-bg--lighten;
 
             svg {
-                width: 32px;
-                height: 32px;
+                max-width: 40px;
+                max-height: 40px;
             }
         }
 

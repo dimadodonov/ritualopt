@@ -344,28 +344,28 @@ if ( ! function_exists( 'hook_edge' ) ) {
                 <div class="edge__wrap">
                     <div class="edge-item edge-item__col-4">
                         <div class="edge-item__icon">
-                            <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--edge-1"/></svg>
+                            <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--edge-warehouse"/></svg>
                         </div>
                         <div class="edge-item__title">Собственное производство <br>и склад</div>
                         <div class="edge-item__subtitle">Весь предлагаемый нами ассортимент товара всегда доступен и актуален</div>
                     </div>
                     <div class="edge-item edge-item__col-4">
                         <div class="edge-item__icon">
-                            <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--edge-2"/></svg>
+                            <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--edge-quality"/></svg>
                         </div>
                         <div class="edge-item__title">Качественное сырье</div>
                         <div class="edge-item__subtitle">Изготовленная нами продукция всегда отличается приятным внешним видом и новизной</div>
                     </div>
                     <div class="edge-item edge-item__col-4">
                         <div class="edge-item__icon">
-                            <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--edge-3"/></svg>
+                            <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--edge-florist"/></svg>
                         </div>
                         <div class="edge-item__title">Мы отлично знаем свое дело!</div>
                         <div class="edge-item__subtitle">В нашей команде работают профессиональные флористы</div>
                     </div>
                     <div class="edge-item edge-item__col-4">
                         <div class="edge-item__icon">
-                            <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--edge-4"/></svg>
+                            <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--edge-delivery"/></svg>
                         </div>
                         <div class="edge-item__title">Доставка</div>
                         <div class="edge-item__subtitle">Мы осуществляем бесплатную доставку по Москве и М.О.</div>
