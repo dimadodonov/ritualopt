@@ -16,10 +16,19 @@
 
     &__wrap {
         display: flex;
+
+        @include xs-block() {
+            flex-direction: column;
+        }
     }
 
     &__inner {
+        width: 100%;
         margin-left: 30px;
+
+        @include xs-block() {
+            margin-left: 0;
+        }
     }
 
     &__loop {

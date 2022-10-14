@@ -48,6 +48,9 @@ get_header();
 					<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/page/about/about.jpg" alt="">
 				</picture>
             </div>
+			<?php
+				hook_edge();
+			?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

@@ -31,12 +31,12 @@ remove_filter( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 
 
 // Отключаем отображение кол-во товара на странице
-add_action( 'after_setup_theme', 'my_remove_product_result_count', 99 );
+// add_action( 'after_setup_theme', 'my_remove_product_result_count', 99 );
 function my_remove_product_result_count() { 
     remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_result_count', 20 );
     remove_action( 'woocommerce_after_shop_loop' , 'woocommerce_result_count', 20 );
 }
 
 // Отключаем сортировку по цене и т/д
-remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
-remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
+// remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+// remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );

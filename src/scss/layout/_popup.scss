@@ -114,6 +114,7 @@
     &-container {
         max-height: 696px;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
 
         &__wrap {
             margin: 32px 50px 72px;
@@ -202,8 +203,25 @@
             background-color: #fff;
             box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.1);
 
+            @include xs-block() {
+                padding: 20px 0 0;
+            }
+
             .product__wrap {
                 margin: 0 !important;
+            }
+
+            .product__row {
+                @include xs-block() {
+                    height: 100vh;
+                    overflow-y: auto;
+                }
+            }
+
+            .product-gallery {
+                @include xs-block() {
+                    margin-bottom: 30px;
+                }
             }
 
             .product-slider-big {
@@ -213,6 +231,29 @@
                 height: 100%;
                 max-height: 450px;
                 min-height: 450px;
+
+                @include xs-block() {
+                    width: 100%;
+                    min-width: 320px;
+                    max-width: 450px;
+                    max-height: 450px;
+                    min-height: 320px;
+                }
+            }
+
+            .product-group {
+                @include xs-block() {
+                    flex-wrap: wrap;
+                    margin: 20px 0 50px;
+                }
+
+                .btn-order {
+                    @include xs-block() {
+                        width: 100%;
+                        max-width: 100%;
+                        margin: 20px;
+                    }
+                }
             }
 
             button.btn-order {

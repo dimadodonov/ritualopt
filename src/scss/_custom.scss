@@ -27,7 +27,6 @@
             bottom: 0 !important;
 
             &-bullet {
-
                 &-active {
                     background: $color-accent;
                 }
@@ -74,6 +73,10 @@
     transform: translateY(-50%);
     border-radius: 4px 0 0 4px;
 
+    @include xs-block() {
+        top: 80%;
+    }
+
     &__inner {
         position: absolute;
         top: 50%;
@@ -91,7 +94,7 @@
         background: $color-accent;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 
-        &+& {
+        & + & {
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 

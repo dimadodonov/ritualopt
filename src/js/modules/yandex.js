@@ -17,7 +17,7 @@ export default () => {
             var myMap = new ymaps.Map(
                     'yamap',
                     {
-                        center: [55.730533, 37.645263],
+                        center: [55.791030068948096, 37.356791499999936],
                         zoom: 17,
                         controls: [],
                         behaviors: [
@@ -35,7 +35,7 @@ export default () => {
                     myMap.getCenter(),
                     {
                         // Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
-                        balloonContentHeader: 'Ritualopt',
+                        balloonContentHeader: '',
                         balloonContentBody:
                             'г. ' + data.city + ', ' + data.adres,
                         balloonContentFooter:
@@ -48,7 +48,7 @@ export default () => {
                             '">' +
                             data.email +
                             '</a>',
-                        hintContent: 'Ritualopt',
+                        hintContent: 'Kans',
                     },
                     {
                         // Опции.
@@ -56,7 +56,7 @@ export default () => {
                         // iconLayout: 'default#image',
                         // Своё изображение иконки метки.
                         // iconImageHref:
-                        // '/wp-content/themes/Ritualoptcraft/assets/files/icons/svg/icon--yapin.svg',
+                        // '/wp-content/themes/kanscraft/assets/files/icons/svg/icon--yapin.svg',
                         // Размеры метки.
                         // iconImageSize: [74, 94],
                         // Смещение левого верхнего угла иконки относительно

@@ -42,59 +42,72 @@ do_action( 'woocommerce_before_main_content' );
 		<h1>Весь каталог</h1>
 	</div>
 
-	<?php
-	/**
-	 * Hook: woocommerce_archive_description.
-	 *
-	 * @hooked woocommerce_taxonomy_archive_description - 10
-	 * @hooked woocommerce_product_archive_description - 10
-	 */
-	do_action( 'woocommerce_archive_description' );
-	?>
+	
+	<div class="products__wrap">
 
-	<?php
-	if ( woocommerce_product_loop() ) {
+		<aside class="aside aside-nav">
+			<?php aside_menu_primary(); ?>
+		</aside>
 
-		/**
-		 * Hook: woocommerce_before_shop_loop.
-		 *
-		 * @hooked woocommerce_output_all_notices - 10
-		 * @hooked woocommerce_result_count - 20
-		 * @hooked woocommerce_catalog_ordering - 30
-		 */
-		do_action( 'woocommerce_before_shop_loop' );
+		<div class="products__inner">
 
-		woocommerce_product_loop_start();
+			<?php
+			/**
+			 * Hook: woocommerce_archive_description.
+			 *
+			 * @hooked woocommerce_taxonomy_archive_description - 10
+			 * @hooked woocommerce_product_archive_description - 10
+			 */
+			do_action( 'woocommerce_archive_description' );
+			?>
 
-		if ( wc_get_loop_prop( 'total' ) ) {
-			while ( have_posts() ) {
-				the_post();
+			<?php
+				if ( woocommerce_product_loop() ) {
 
-				/**
-				 * Hook: woocommerce_shop_loop.
-				 */
-				do_action( 'woocommerce_shop_loop' );
+					/**
+					 * Hook: woocommerce_before_shop_loop.
+					 *
+					 * @hooked woocommerce_output_all_notices - 10
+					 * @hooked woocommerce_result_count - 20
+					 * @hooked woocommerce_catalog_ordering - 30
+					 */
+					do_action( 'woocommerce_before_shop_loop' );
 
-				wc_get_template_part( 'content', 'product' );
-			}
-		}
+					woocommerce_product_loop_start();
 
-		woocommerce_product_loop_end();
+					if ( wc_get_loop_prop( 'total' ) ) {
+						while ( have_posts() ) {
+							the_post();
 
-		/**
-		 * Hook: woocommerce_after_shop_loop.
-		 *
-		 * @hooked woocommerce_pagination - 10
-		 */
-		do_action( 'woocommerce_after_shop_loop' );
-	} else {
-		/**
-		 * Hook: woocommerce_no_products_found.
-		 *
-		 * @hooked wc_no_products_found - 10
-		 */
-		do_action( 'woocommerce_no_products_found' );
-	}		?>
+							/**
+							 * Hook: woocommerce_shop_loop.
+							 */
+							do_action( 'woocommerce_shop_loop' );
+
+							wc_get_template_part( 'content', 'product' );
+						}
+					}
+
+					woocommerce_product_loop_end();
+
+					/**
+					 * Hook: woocommerce_after_shop_loop.
+					 *
+					 * @hooked woocommerce_pagination - 10
+					 */
+					do_action( 'woocommerce_after_shop_loop' );
+				} else {
+					/**
+					 * Hook: woocommerce_no_products_found.
+					 *
+					 * @hooked wc_no_products_found - 10
+					 */
+					do_action( 'woocommerce_no_products_found' );
+				}
+			?>
+			
+			</div>
+		</div>
 	</div>
 </div>
 <?php

@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( $related_products ) : ?>
 
-        <section class="section section-related related hidden">
+        <section class="section section-related related">
             <div class="container">
 				<?php
 				$heading = 'Похожие товары';
@@ -35,9 +35,9 @@ if ( $related_products ) : ?>
 		
 				<?php woocommerce_product_loop_start(); ?>
 
-                <div class="loop products">
-                    <div class="loop__wrap loop-slider swiper swiper-container">
-                        <div class="swiper-wrapper">
+					<div class="loop products">
+						<div class="loop__wrap loop-slider swiper">
+							<div class="swiper-wrapper">
 
 							<?php foreach ( $related_products as $related_product ) : ?>
 								<?php
@@ -56,13 +56,14 @@ if ( $related_products ) : ?>
 
 							<?php endforeach; ?>
 
-                        </div>
-                        <div class="loop-swiper-button">
-                            <div class="loop-swiper-button-arrow loop-swiper-button-prev"><svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--loop-next"/></svg></div>
-                            <div class="loop-swiper-button-arrow loop-swiper-button-next"><svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--loop-next"/></svg></div>
-                        </div>
-                    </div>
-                </div>
+                        	</div>
+							<div class="loop-swiper-button">
+								<div class="loop-swiper-button-arrow loop-swiper-button-prev"><svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--loop-next"/></svg></div>
+								<div class="loop-swiper-button-arrow loop-swiper-button-next"><svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--loop-next"/></svg></div>
+							</div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
 
 				<?php woocommerce_product_loop_end(); ?>
 

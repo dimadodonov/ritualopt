@@ -13,6 +13,55 @@
         @include hd-block() {
             padding: 0 20px;
         }
+
+        @include xs-block() {
+            display: none;
+        }
+    }
+
+    &-mob {
+        position: relative;
+        display: none;
+        margin: 0 auto;
+
+        @include xs-block() {
+            display: block;
+        }
+
+        &__wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            padding: 0 15px;
+            background: #fff;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        &__inner {
+            display: flex;
+            align-items: center;
+        }
+
+        &__logo {
+            width: 190px;
+
+            svg {
+                width: 190px;
+                height: auto;
+            }
+        }
+
+        &__item {
+            & + & {
+                margin-left: 24px;
+            }
+
+            svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
     }
 
     &-logo {

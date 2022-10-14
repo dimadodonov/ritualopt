@@ -48,6 +48,26 @@ if ( ! function_exists( 'hook_header' ) ) {
                     </a>
                 </div>
             </div>
+            <div class="header-mob">
+                <div class="header-mob__wrap">
+                    <?php if(is_home()) { ?><div class="header-mob__logo"><?php } else { ?><a class="header-mob__logo" href="<?php echo site_url(); ?>"><?php }; ?>
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/files/icons/svg/logo.svg" alt="<?php echo get_bloginfo( 'title' ); ?>">
+                    <?php if(is_home()) { ?></div><?php } else { ?></a><?php }; ?>
+                    <div class="header-mob__inner">
+                        <a class="header-mob__item" href="tel:+79260400495">
+                            <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--phone-header"/></svg>
+                        </a>
+                        <a class="header-mob__item header-cart" href="<?php echo esc_url( wc_get_cart_url() ); ?>">
+                            <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--cart"/></svg>
+                            <?php $cartEmpty = wp_kses_data(WC()->cart->get_cart_contents_count()); ?>
+                                <div class="count cart-customlocation<?php if ($cartEmpty > 0) { echo ' active';} ?>"><?php echo wp_kses_data(WC()->cart->get_cart_contents_count()); ?></div>
+                        </a>
+                        <div class="header-mob__item header-mob__nav">
+                            <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--nav"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </header>
     <?php }
 }
@@ -60,6 +80,7 @@ if ( ! function_exists( 'hook_nav' ) ) {
         <nav class="nav">
             <ul>
                 <li><a href="<?php echo site_url(); ?>">Главная</a></li>
+                <li><a href="<?php echo site_url('/shop'); ?>">Каталог</a></li>
                 <li><a href="<?php echo site_url('/about'); ?>">О компании</a></li>
             </ul>
             <div id="search" class="search">
@@ -79,6 +100,35 @@ if ( ! function_exists( 'hook_nav' ) ) {
                 <li><a href="<?php echo site_url('/contacts'); ?>">Контакты</a></li>
             </ul>
         </nav>
+        <div class="nav-mob">
+            <div class="nav-mob__close"><svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--header-nav-close"/></svg></div>
+            <div class="nav-mob__wrap">
+                
+                <?php if(is_home()) { ?><div class="header-mob__logo"><?php } else { ?><a class="header-mob__logo" href="<?php echo site_url(); ?>"><?php }; ?>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/files/icons/svg/logo.svg" alt="<?php echo get_bloginfo( 'title' ); ?>">
+                <?php if(is_home()) { ?></div><?php } else { ?></a><?php }; ?>
+                
+                <?php main_menu_cat(); ?>
+                <?php footer_menu_general(); ?>
+
+                <div class="header-contacts">
+                    <div class="header-phone">
+                        <a class="header-phone__wrpa" href="tel:+79260400495">
+                            <div class="header-phone__icon"><svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--phone"/></svg></div>
+                            <div class="header-phone__number">+7 926 040-04-95</div>
+                        </a>
+                        <span>Пн-Пт, с 09:00 до 17:00</span>
+                    </div>
+                    <div class="header-mail">
+                        <a class="header-phone__wrpa" href="mailto:r-vitrina@mail.ru">
+                            <div class="header-phone__icon"><svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--phone"/></svg></div>
+                            <div class="header-phone__number">r-vitrina@mail.ru</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-mob__overlay"></div>
     <?php }
 }
 
@@ -155,6 +205,53 @@ if ( ! function_exists( 'hook_page_after' ) ) {
     }
 }
 
+
+
+if ( ! function_exists( 'hook_home_category' ) ) {
+    /**
+     * Display Hooks Home Category
+     */
+    function hook_home_category() { 
+        
+        $category = get_field('category', 'option');
+
+        if($category) :
+
+        ?>        
+            <div class="category">
+                <div class="category__wrap">
+                    <?php
+                        foreach($category as $category_item) :
+                        $category_img = $category_item['category_img'];
+                        $category_img_mob = $category_item['category_img_mob'];
+                        $category_title = $category_item['category_title'];
+                        $category_url = $category_item['category_url'];
+                    ?>
+                    <a class="category-item" href="<?php if($category_url) { echo esc_html($category_url); } ?>">
+                        <div class="category-item__title"><?php echo $category_title; ?></div>
+                        <div class="category-item__image">
+                            <picture>
+                                <?php if($category_img_mob) { ?><source media="(max-width: 800px)" srcset="<?php echo $category_img_mob; ?>"><?}?>
+                                <?php if($category_img) { ?><source media="(max-width: 1366px)" srcset="<?php echo $category_img; ?>"><?}?>
+                                <?php if($category_img) { ?><source media="(min-width: 1336px)" srcset="<?php echo $category_img; ?>"><?}?>
+                               <?php if($category_img_mob) { ?>
+                                    <img src="<?php echo $category_img_mob; ?>">
+                               <?php } else { ?>
+                                    <img src="<?php echo $category_img; ?>">
+                                <?php } ?>
+                            </picture>
+                        </div>
+                    </a>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php
+    
+        endif;
+
+    }
+}
+
 if ( ! function_exists( 'hook_intro' ) ) {
     /**
      * Display Hooks intro
@@ -166,70 +263,7 @@ if ( ! function_exists( 'hook_intro' ) ) {
                     <aside class="aside aside-nav">
                         <?php aside_menu_primary(); ?>
                     </aside>
-                    <div class="category">
-                        <div class="category__wrap">
-                            <div class="category-item">
-                                <div class="category-item__title">Венки <br>ритуальные</div>
-                                <div class="category-item__image">
-                                    <picture>
-                                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-1.webp" type="image/webp">
-                                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-1.jpg" type="image/jpg">
-                                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-1.jpg" alt="">
-                                    </picture>
-                                </div>
-                            </div>
-                            <div class="category-item">
-                                <div class="category-item__title">Венки <br>ритуальные</div>
-                                <div class="category-item__image">
-                                    <picture>
-                                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-2.webp" type="image/webp">
-                                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-2.jpg" type="image/jpg">
-                                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-2.jpg" alt="">
-                                    </picture>
-                                </div>
-                            </div>
-                            <div class="category-item">
-                                <div class="category-item__title">Венки <br>ритуальные</div>
-                                <div class="category-item__image">
-                                    <picture>
-                                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-3.webp" type="image/webp">
-                                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-3.jpg" type="image/jpg">
-                                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-3.jpg" alt="">
-                                    </picture>
-                                </div>
-                            </div>
-                            <div class="category-item">
-                                <div class="category-item__title">Венки <br>ритуальные</div>
-                                <div class="category-item__image">
-                                    <picture>
-                                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-4.webp" type="image/webp">
-                                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-4.jpg" type="image/jpg">
-                                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-4.jpg" alt="">
-                                    </picture>
-                                </div>
-                            </div>
-                            <div class="category-item">
-                                <div class="category-item__title">Венки <br>ритуальные</div>
-                                <div class="category-item__image">
-                                    <picture>
-                                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-5.webp" type="image/webp">
-                                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-5.jpg" type="image/jpg">
-                                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-5.jpg" alt="">
-                                    </picture>
-                                </div>
-                            </div>
-                            <div class="category-item">
-                                <div class="category-item__title">Венки <br>ритуальные</div>
-                                <div class="category-item__image">
-                                    <picture>
-                                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-6.webp" type="image/webp">
-                                        <source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-6.jpg" type="image/jpg">
-                                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/section/category/category-6.jpg" alt="">
-                                    </picture>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php hook_home_category(); ?>
                 </div>
             </div>
         </section>
@@ -326,43 +360,6 @@ if ( ! function_exists( 'hook_intro' ) ) {
             </div>
         </section>
     <?php }
-}
-
-if ( ! function_exists( 'hook_home_category' ) ) {
-    /**
-     * Display Hooks Home Category
-     */
-    function hook_home_category() { 
-        
-        $category = get_field('category', 'option');
-
-        if($category) :
-
-        ?>
-        <section class="section section-category category">
-            <div class="category__wrap">
-                <div class="category__row">
-                    <?php
-                        foreach($category as $category_item) :
-                        $category_img = $category_item['category_img'];
-                        $category_title = $category_item['category_title'];
-                        $category_url = $category_item['category_url'];
-                    ?>
-                    <a class="category-item" href="<?php if($category_url) { echo esc_html($category_url); } ?>">
-                        <div class="category-item__title"><?php echo $category_title; ?></div>
-                        <div class="category-item__image">
-                            <?php echo wp_get_attachment_image($category_img, 'full'); ?>
-                        </div>
-                    </a>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </section>
-        <?php
-    
-        endif;
-
-    }
 }
 
 if ( ! function_exists( 'hook_edge' ) ) {

@@ -29,7 +29,7 @@ function search_ajax_action_callback() {
             wc_get_template_part( 'content', 'product-search' );
         }
 
-        echo '</div></div><div class="search-result__link"><a class="btn" href="' . site_url( '/catalog' ) . '" title="Перейти в каталог">Перейти в каталог</a></div>';
+        // echo '</div></div><div class="search-result__link"><a class="btn btn-accent" href="' . site_url( '/catalog' ) . '" title="Перейти в каталог">Перейти в каталог</a></div>';
 
     }
     else {

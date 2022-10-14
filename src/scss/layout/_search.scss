@@ -61,7 +61,7 @@
 
     &-result {
         position: absolute;
-        z-index: 90;
+        z-index: 9999;
         display: none;
         width: 362px;
         border-radius: 5px;
@@ -70,6 +70,13 @@
 
         &-noitem {
             padding: 20px;
+        }
+
+        .products__loop {
+            height: 350px;
+            margin: 0 15px;
+            padding-bottom: 20px;
+            overflow-y: auto;
         }
     }
 }

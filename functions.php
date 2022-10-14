@@ -1,7 +1,7 @@
 <?php
 
 require get_template_directory() . '/includes/enqueue_script_style.php';
-// require get_template_directory() . '/includes/widget-areas.php';
+require get_template_directory() . '/includes/widget-areas.php';
 //require get_template_directory() . '/includes/helpers.php';
 // require get_template_directory() . '/includes/post-type.php';
 

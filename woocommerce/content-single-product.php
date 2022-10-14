@@ -159,6 +159,7 @@ do_action( 'woocommerce_before_single_product' );
 
 	<?php
 		woocommerce_output_related_products();
+		hook_edge();
 	?>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

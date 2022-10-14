@@ -38,6 +38,44 @@ get_header();
 							<?php endif;
 						endwhile; // End of the loop.
                     ?>
+					<div class="page-contacts__wrap">
+						<div class="page-contacts__col">
+							<div class="page-contacts__info">
+								<h2>Как мы можем вам помочь?</h2>
+								<span>Мы можем проконсультировать вас по телефону или в мессенджерах</span>
+							</div>
+							<div class="page-contacts__inner">
+								<div class="social">
+									<a class="social__item whatsapp" href="" target="_blank">
+										<svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--social-whatsapp"></use></svg>
+									</a>
+									<a class="social__item telegram" href="" target="_blank">
+										<svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--social-telegram"></use></svg>
+									</a>
+									<a class="social__item viber" href="" target="_blank">
+										<svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--social-viber"></use></svg>
+									</a>
+								</div>
+								<div class="page-contacts__phone">
+									<a href="tel:+79260400495">
+										<span>Телефон</span>
+										<strong>+7 (926) 040-04-95</strong>
+									</a>
+									<a href="mailto:r-vitrina@mail.ru">
+										<span>Email</span>
+										<strong>r-vitrina@mail.ru</strong>
+									</a>
+								</div>
+							</div>
+							<div class="page-contacts__info">
+								<strong>121500 г. Москва, ул. Василия Ботылева, д. 20.</strong>
+								<span>Пн-Пт, с 09:00 до 17:00</span>
+							</div>
+						</div>
+						<div class="page-contacts__col page-contacts__map">
+							<div id="yamap" class="map" data-city="<?php echo $contact_city; ?>" data-adres="<?php echo $contact_adress; ?>" data-phone="<?php echo $contact_phone; ?>" data-email="<?php echo $contact_email; ?>"></div>
+						</div>
+					</div>
                 </div>
 			</div>
 		</main><!-- #main -->

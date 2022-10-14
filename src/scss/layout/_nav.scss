@@ -12,6 +12,10 @@
         padding: 0 20px;
     }
 
+    @include xs-block() {
+        display: none;
+    }
+
     ul {
         display: flex;
 
@@ -24,6 +28,97 @@
                 font-size: 20px;
                 line-height: 19px;
             }
+        }
+    }
+
+    &-mob {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: $trs;
+
+        &__wrap {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 110;
+            width: 100%;
+            max-width: 320px;
+            height: 100vh;
+
+            padding: 40px 20px;
+            overflow-x: auto;
+
+            background-color: #fff;
+            box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.1);
+
+            .header-mob__logo {
+                margin-bottom: 50px;
+
+                svg {
+                    width: 200px;
+                }
+            }
+
+            .header-contacts {
+                flex-direction: column;
+            }
+
+            .header-mail {
+                margin-top: 50px;
+                margin-left: 0;
+            }
+        }
+
+        &__overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+            display: none;
+            background-color: rgba(0, 0, 0, 0.7);
+
+            &.active {
+                display: block;
+            }
+        }
+
+        &__close {
+            position: absolute;
+            top: 20px;
+            right: 15px;
+            z-index: 190;
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.3);
+
+            svg {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 20px;
+                height: 20px;
+                transform: translate(-50%, -50%);
+                fill: #fff;
+            }
+        }
+
+        &.active {
+            z-index: 190;
+            visibility: visible;
+            opacity: 1;
+            display: block;
+            transform: translateX(0);
         }
     }
 }

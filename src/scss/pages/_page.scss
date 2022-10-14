@@ -124,6 +124,92 @@
             }
         }
     }
+
+    &-contacts {
+        margin: 0;
+
+        &__wrap {
+            display: flex;
+            align-items: center;
+            margin: 0 -15px;
+        }
+
+        &__col {
+            width: calc(50% - 30px);
+            margin: 0 15px;
+        }
+
+        &__map {
+            height: 348px;
+            margin: 50px 0;
+            overflow: hidden;
+            border-radius: 5px;
+            background-color: #fcfcf7;
+
+            .map {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &__info {
+            margin: 0;
+
+            h2 {
+                margin-bottom: 10px;
+                font-family: $f-bold;
+                font-size: 36px;
+                line-height: 40px;
+            }
+
+            strong {
+                font-family: $f-medium;
+                font-weight: normal;
+            }
+
+            span {
+                opacity: 0.8;
+                display: block;
+            }
+        }
+
+        &__inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        &__phone {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            a {
+                display: flex;
+                flex-direction: column;
+                margin-left: 50px;
+                color: $color-text;
+
+                &:hover {
+                    color: $color-accent;
+                }
+            }
+
+            strong {
+                font-family: $f-medium;
+                font-weight: normal;
+            }
+
+            span {
+                font-size: 14px;
+            }
+        }
+
+        .social {
+            margin: 50px 0;
+        }
+    }
 }
 
 // .page

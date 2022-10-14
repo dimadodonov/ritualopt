@@ -1,0 +1,88 @@
+.social {
+    display: flex;
+    align-items: center;
+
+    &__item {
+        position: relative;
+        display: flex;
+        width: 53px;
+        height: 53px;
+        border-radius: 10px;
+        background: gray;
+
+        .footer & {
+            width: 34px;
+            height: 34px;
+        }
+
+        svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 35px;
+            height: 35px;
+            transform: translate(-50%, -50%);
+            fill: #fff;
+
+            .footer & {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        &.vk {
+            background: #2787f5;
+        }
+
+        &.whatsapp {
+            background: #4ac959;
+        }
+
+        &.telegram {
+            background: #26a5e4;
+        }
+
+        &.viber {
+            background: #7b519c;
+        }
+
+        &.youtube {
+            background: #f00;
+
+            svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        &.instagram {
+            background: radial-gradient(
+                92.18% 99.11% at 26.56% 107.7%,
+                #fd5 0%,
+                #fd5 10%,
+                #ff543e 50%,
+                #c837ab 100%
+            );
+
+            svg {
+                top: 50%;
+                width: 35px;
+                height: 35px;
+                fill: #fff;
+
+                .footer & {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+
+        & + & {
+            margin-left: 20px;
+
+            .footer & {
+                margin-left: 10px;
+            }
+        }
+    }
+}

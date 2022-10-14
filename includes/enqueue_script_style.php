@@ -23,6 +23,6 @@ function mi_scripts() {
     ));
 
     if (is_page('contacts')) {
-        wp_enqueue_script( 'maps_yandex', 'https://api-maps.yandex.ru/2.1/?lang=ru-RU&amp;apikey=""', array( 'jquery' ), '2.1', true );
+        wp_enqueue_script( 'maps_yandex', 'https://api-maps.yandex.ru/2.1/?lang=ru-RU&amp;apikey=921e8a03-bf8e-4fc3-9642-3ad9c8a7ff00', array( 'jquery' ), '2.1', true );
     }
 }
