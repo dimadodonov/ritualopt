@@ -73,7 +73,7 @@ get_header();
 							</div>
 						</div>
 						<div class="page-contacts__col page-contacts__map">
-							<div id="yamap" class="map" data-city="<?php echo $contact_city; ?>" data-adres="<?php echo $contact_adress; ?>" data-phone="<?php echo $contact_phone; ?>" data-email="<?php echo $contact_email; ?>"></div>
+							<div id="yamap" class="map"></div>
 						</div>
 					</div>
                 </div>

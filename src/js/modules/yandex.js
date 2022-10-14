@@ -2,17 +2,6 @@ export default () => {
     const yMap = document.querySelector('.map');
 
     if (yMap) {
-        const $city = yMap.dataset.city;
-        const $adres = yMap.dataset.adres;
-        const $phone = yMap.dataset.phone;
-        const $email = yMap.dataset.email;
-        const data = {
-            city: $city,
-            adres: $adres,
-            phone: $phone,
-            email: $email,
-        };
-
         ymaps.ready(function () {
             var myMap = new ymaps.Map(
                     'yamap',
@@ -33,23 +22,7 @@ export default () => {
                 ),
                 myPlacemark = new ymaps.Placemark(
                     myMap.getCenter(),
-                    {
-                        // Чтобы балун и хинт открывались на метке, необходимо задать ей определенные свойства.
-                        balloonContentHeader: '',
-                        balloonContentBody:
-                            'г. ' + data.city + ', ' + data.adres,
-                        balloonContentFooter:
-                            'Телефон: <a href="' +
-                            data.phone +
-                            '">' +
-                            data.phone +
-                            '</a> <br> <br> E-mail: <a href="mailto:' +
-                            data.email +
-                            '">' +
-                            data.email +
-                            '</a>',
-                        hintContent: 'Kans',
-                    },
+                    {},
                     {
                         // Опции.
                         // Необходимо указать данный тип макета.

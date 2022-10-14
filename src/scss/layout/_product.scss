@@ -270,6 +270,12 @@
             }
         }
 
+        .single & {
+            @include xs-block() {
+                margin-bottom: 30px;
+            }
+        }
+
         &-play {
             position: absolute;
             top: 25px;
@@ -403,7 +409,6 @@
         padding: 0 !important;
 
         &:hover svg {
-            stroke: red;
             fill: red;
         }
 
@@ -681,10 +686,16 @@
         display: flex;
         align-items: center;
 
+        @include xs-block() {
+            flex-wrap: wrap;
+            margin: 20px 0 50px;
+        }
+
         .btn-order {
             @include xs-block() {
-                max-width: 142px;
-                margin-left: auto;
+                width: 100%;
+                max-width: 100%;
+                margin: 20px 0;
             }
         }
 

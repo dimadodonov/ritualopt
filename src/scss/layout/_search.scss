@@ -73,7 +73,8 @@
         }
 
         .products__loop {
-            height: 350px;
+            align-content: flex-start;
+            max-height: 350px;
             margin: 0 15px;
             padding-bottom: 20px;
             overflow-y: auto;

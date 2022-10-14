@@ -965,12 +965,13 @@ ul.woocommerce-order-overview {
 
 .woocommerce nav.woocommerce-pagination {
     text-align: center;
+    width: 100%;
 }
 
 .woocommerce nav.woocommerce-pagination ul {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin: 50px 0;
 }
 
 .woocommerce nav.woocommerce-pagination ul li {

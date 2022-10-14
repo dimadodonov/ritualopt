@@ -132,11 +132,19 @@
             display: flex;
             align-items: center;
             margin: 0 -15px;
+
+            @include xs-block() {
+                flex-direction: column;
+            }
         }
 
         &__col {
             width: calc(50% - 30px);
             margin: 0 15px;
+
+            @include xs-block() {
+                width: calc(100% - 30px);
+            }
         }
 
         &__map {
@@ -145,6 +153,10 @@
             overflow: hidden;
             border-radius: 5px;
             background-color: #fcfcf7;
+
+            @include xs-block() {
+                width: calc(100%);
+            }
 
             .map {
                 position: relative;
@@ -185,11 +197,20 @@
             flex-wrap: wrap;
             justify-content: center;
 
+            @include xs-block() {
+                flex-direction: column;
+            }
+
             a {
                 display: flex;
                 flex-direction: column;
                 margin-left: 50px;
                 color: $color-text;
+
+                @include xs-block() {
+                    margin-bottom: 30px;
+                    margin-left: 0;
+                }
 
                 &:hover {
                     color: $color-accent;
