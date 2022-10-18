@@ -1,11 +1,11 @@
 .search {
     width: 100%;
-    max-width: 362px;
+    max-width: 340px;
 
     &-form {
         &__field {
             width: 100%;
-            max-width: 362px;
+            max-width: 340px;
             height: 60px;
             padding: 0 20px;
             border: none;
@@ -63,7 +63,7 @@
         position: absolute;
         z-index: 9999;
         display: none;
-        width: 362px;
+        width: 340px;
         border-radius: 5px;
         background: #fff;
         box-shadow: 5px 25px 40px rgba(0, 0, 0, 0.15);

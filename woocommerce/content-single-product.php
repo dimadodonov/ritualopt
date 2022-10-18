@@ -32,127 +32,120 @@ do_action( 'woocommerce_before_single_product' );
 	<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 
 		<div class="container">
-			<div class="product__wrap">
 
-				<div class="product__row">
-					<div class="product-gallery">
-						<div class="product-gallery__wrap">
+			<div class="products__wrap">
 
-							<?php
-								$product_image_id = $product->get_image_id();
-								$product_gallery_ids = $product->get_gallery_image_ids();
+				<aside class="aside aside-nav">
+					<?php aside_menu_primary(); ?>
+				</aside>
 
-								if( $product_image_id ) :
-							?>
+				<div class="products__inner">
+					<div class="product__wrap">
 
-							<div class="swiper product-slider product-slider-big">
-								<div class="swiper-wrapper">
-									<div class="swiper-slide">
+						<div class="product__row">
+							<div class="product-gallery">
+								<div class="product-gallery__wrap">
 
-										<a href="<?php echo wp_get_attachment_image_url( $product_image_id, 'full' ); ?>" data-fancybox="gallery">
-											<figure class="product-slider__item">
-												<?php
-													if ( $product->get_image_id() ) :
-														echo wp_get_attachment_image( $product_image_id, 'woocommerce_thumbnail' );
-													endif;
-												?>
-											</figure>
-										</a>
-
-									</div>
-
-									<?php
-										if( $product_gallery_ids ) :
-											foreach( $product_gallery_ids as $product_gallery_id ) : ?>
-												<div class="swiper-slide">
-
-													<a href="<?php echo wp_get_attachment_image_url( $product_gallery_id, 'full' ); ?>" data-fancybox="gallery">
-														<figure class="product-card-slide">
-															<?php
-																if ( $product->get_image_id() ) :
-																	echo wp_get_attachment_image( $product_gallery_id, 'woocommerce_thumbnail' );
-																endif;
-															?>
-														</figure>
-													</a>
-
-												</div>
-											<?php endforeach;
-										endif;
+									<?php 
+										$product_image_id = $product->get_image_id();
+										$product_gallery_ids = $product->get_gallery_image_ids();
 									?>
-								</div>
-							</div>
 
-							<div class="swiper product-slider-thumbs">
-								<div class="swiper-wrapper">
-									<div class="swiper-slide">
+									<div class="swiper product-slider-thumbs">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
 
-										<figure class="product-slider-thumbs__item">
+												<figure class="product-slider-thumbs__item">
+													<?php
+														if ( $product->get_image_id() ) :
+															echo wp_get_attachment_image( $product_image_id, 'thumbnail' );
+														endif;
+													?>
+												</figure>
+
+											</div>
+
 											<?php
-												if ( $product->get_image_id() ) :
-													echo wp_get_attachment_image( $product_image_id, 'thumbnail' );
+												if( $product_gallery_ids ) :
+													foreach( $product_gallery_ids as $product_gallery_id ) : ?>
+														<div class="swiper-slide">
+
+															<figure class="product-slider-thumbs__item">
+																<?php
+																	if ( $product->get_image_id() ) :
+																		echo wp_get_attachment_image( $product_gallery_id, 'thumbnail' );
+																	endif;
+																?>
+															</figure>
+
+														</div>
+													<?php endforeach;
 												endif;
 											?>
-										</figure>
-
+										</div>
 									</div>
 
-									<?php
-										if( $product_gallery_ids ) :
-											foreach( $product_gallery_ids as $product_gallery_id ) : ?>
-												<div class="swiper-slide">
+									<div class="swiper product-slider product-slider-big">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
 
-													<figure class="product-slider-thumbs__item">
+												<a href="<?php echo wp_get_attachment_image_url( $product_image_id, 'full' ); ?>" data-fancybox="gallery">
+													<figure class="product-slider__item">
 														<?php
 															if ( $product->get_image_id() ) :
-																echo wp_get_attachment_image( $product_gallery_id, 'thumbnail' );
+																echo wp_get_attachment_image( $product_image_id, 'woocommerce_thumbnail' );
 															endif;
 														?>
 													</figure>
+												</a>
 
-												</div>
-											<?php endforeach;
-										endif;
-									?>
-								</div>
-							</div>
+											</div>
 
-							<?php else : ?>
+											<?php
+												if( $product_gallery_ids ) :
+													foreach( $product_gallery_ids as $product_gallery_id ) : ?>
+														<div class="swiper-slide">
 
-								<div class="swiper product-slider product-slider-big">
-									<div class="swiper-wrapper">
-										<div class="swiper-slide">
+															<a href="<?php echo wp_get_attachment_image_url( $product_gallery_id, 'full' ); ?>" data-fancybox="gallery">
+																<figure class="product-card-slide">
+																	<?php
+																		if ( $product->get_image_id() ) :
+																			echo wp_get_attachment_image( $product_gallery_id, 'woocommerce_thumbnail' );
+																		endif;
+																	?>
+																</figure>
+															</a>
 
-											<figure class="product-slider-thumbs__item">
-												<?php echo woocommerce_placeholder_img('woocommerce_single'); ?>
-											</figure>
-
+														</div>
+													<?php endforeach;
+												endif;
+											?>
 										</div>
 									</div>
+
 								</div>
-
-							<?php endif; ?>
-
+							</div>
+							<div class="product-summary">
+								<div class="product-title"><h1><?php echo $product->get_title(); ?></h1></div>
+								<?php woocommerce_template_single_add_to_cart(); ?>
+							</div>
 						</div>
-					</div>
-					<div class="product-summary">
-						<div class="product-title"><h1><?php echo $product->get_title(); ?></h1></div>
-						<?php woocommerce_template_single_add_to_cart(); ?>
-					</div>
-				</div>
 
-				<?php
-					$the_content = get_the_content();
-					if($the_content) :
-				?>
-				<div class="product-desc">
-					<div class="product-desc__title">
-						<h2>Описание</h2>
+						<?php
+							$the_content = get_the_content();
+							if($the_content) :
+						?>
+						<div class="product-desc">
+							<div class="product-desc__title">
+								<h2>Описание</h2>
+							</div>
+							<?php the_content(); ?>
+						</div>
+						<?php endif; ?>
 					</div>
-					<?php the_content(); ?>
 				</div>
-				<?php endif; ?>
 			</div>
+
 		</div>
 
 	</div>

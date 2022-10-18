@@ -46,36 +46,31 @@ if ( ! defined( 'YITH_WCWL' ) ) {
 } // Exit if accessed directly
 ?>
 
-<!-- WISHLIST MOBILE -->
-<div
-	class="shop_table cart wishlist_table wishlist_view product-item__wrap products-container <?php echo $show_cb ? 'with-checkbox' : ''; ?> <?php echo $no_interactions ? 'no-interactions' : ''; ?>"
-	data-pagination="<?php echo esc_attr( $pagination ); ?>" data-per-page="<?php echo esc_attr( $per_page ); ?>" data-page="<?php echo esc_attr( $current_page ); ?>"
-	data-id="<?php echo esc_attr( $wishlist_id ); ?>" data-token="<?php echo esc_attr( $wishlist_token ); ?>">
+	<div class="cart wishlist_table wishlist_view traditional products-loop products__loop <?php echo $no_interactions ? 'no-interactions' : ''; ?> <?php echo $enable_drag_n_drop ? 'sortable' : ''; ?> "
+		data-pagination="<?php echo esc_attr( $pagination ); ?>" data-per-page="<?php echo esc_attr( $per_page ); ?>" data-page="<?php echo esc_attr( $current_page ); ?>"
+		data-id="<?php echo esc_attr( $wishlist_id ); ?>" data-token="<?php echo esc_attr( $wishlist_token ); ?>">
 
-	<?php
-	if ( $wishlist && $wishlist->has_items() ) :
-		foreach ( $wishlist_items as $item ) :
-			/**
-			 * Each of wishlist items
-			 *
-			 * @var $item \YITH_WCWL_Wishlist_Item
-			 */
-			global $product;
+		<?php
+		if ( $wishlist && $wishlist->has_items() ) :
+			foreach ( $wishlist_items as $item ) :
+				// phpcs:ignore Generic.Commenting.DocComment
+				/**
+				 * @var $item \YITH_WCWL_Wishlist_Item
+				 */
+				global $product;
 
-			$product      = $item->get_product();
-			$product_id = $product->get_id();
-			$availability = $product->get_availability();
-			$stock_status = isset( $availability['class'] ) ? $availability['class'] : false;
+				$product      = $item->get_product();
+				$product_id = $product->get_id();
+				$availability = $product->get_availability();
+				$stock_status = isset( $availability['class'] ) ? $availability['class'] : false;
 
-			if ( $product && $product->exists() ) : ?>
+				if ( $product && $product->exists() ) : ?>
 
-				<div
-					id="yith-wcwl-row-<?php echo esc_attr( $item->get_product_id() ); ?>"
-					<?php wc_product_class('products-item wishlist-item'); ?>
-					data-row-id="<?php echo esc_attr( $item->get_product_id() ); ?>"
-				>
-
-					<div class="product-card__wrap">
+					<div
+						id="yith-wcwl-row-<?php echo esc_attr( $item->get_product_id() ); ?>"
+						<?php wc_product_class('product-card product-card__loop'); ?>
+						data-row-id="<?php echo esc_attr( $item->get_product_id() ); ?>"
+					>
 
 						<?php if ( $show_remove_product ) : ?>
 							<div class="product-remove position">
@@ -83,61 +78,57 @@ if ( ! defined( 'YITH_WCWL' ) ) {
 							</div>
 						<?php endif; ?>
 
-						<figure class="product-card__thumb">
-
-							<div class="product-card__badge badge">
+						<a href="<?php echo $product->get_permalink(); ?>" title="<?php echo $product->get_title(); ?>" class="product-card__wrap">
+							<figure class="product-card__thumb">
+								<?php echo $product->get_image('thumbnail'); ?>
+							</figure>
+							<div class="product-card__name"><?php echo $product->get_title(); ?></div>
+							<div class="product-card__prices">
 								<?php
-									if( has_term( 'featured', 'product_visibility', $product_id ) ) {
-										echo '<div class="badge__item">Хит продаж</div>';
-									}
-									if( $product->is_on_sale() ) {
-										echo '<div class="badge__item sale">Скидка</div>';
+									$price = $product->get_price();
+									$regular_price = $product->get_regular_price();
+									$sale_price = $product->get_sale_price();
+
+									// $product->is_type( $type ) checks the product type, string/array $type ( 'simple', 'grouped', 'variable', 'external' ), returns boolean
+									if ( $product->is_type( 'variable' ) ) {
+										if($price) { ?>
+											<div class="product-card__price"><?php echo $price; ?><ins>₽</ins></div>
+										<?php } 
+									} else {
+										if($sale_price) {?>
+											<div class="product-card__price product-card__newprice"><?php echo $sale_price; ?><ins>₽</ins></div>
+											<div class="product-card__price product-card__oldprice"><?php echo $regular_price; ?><ins>₽</ins></div>
+										<?php } else { 
+											if($price) { ?>
+											<div class="product-card__price"><?php echo $price; ?><ins>₽</ins></div>
+											<?php }
+										}
 									}
 								?>
 							</div>
-							<a href="<?php echo $product->get_permalink(); ?>">
-								<?php echo $product->get_image(); ?>
-							</a>
-						</figure>
-
-						<div class="product-card__name"><a href="<?php echo $product->get_permalink(); ?>" title="<?php echo $product->get_title(); ?>"><?php echo $product->get_title(); ?></a></div>
-
-						<div class="product-card__prices">
-							<?php		
-							$start_price = $product->get_price();
-							$price = $product->get_regular_price();
-							?>
-							<div class="product-card__price"><?php if(!$price) { ?>от<?php } ?><ins><?php echo $start_price; ?></ins>руб</div>
-						</div>	
-
-						<div class="product-card__detals">			
+						</a>
+						<?php if($price) { ?>
 							<?php woocommerce_template_loop_add_to_cart(); ?>
-						</div>
+						<?php } ?>
+
 					</div>
 
-				</div>
-			<?php
-			endif;
-		endforeach;
-	else :
+				<?php
+				endif;
+			endforeach;
+		else :
 		?>
-		<p class="wishlist-empty">
-			<?php echo esc_html( apply_filters( 'yith_wcwl_no_product_to_remove_message', __( 'No products added to the wishlist', 'yith-woocommerce-wishlist' ) ) ); ?>
-		</p>
+			<div>
+				<div class="wishlist-empty"><?php echo esc_html( apply_filters( 'yith_wcwl_no_product_to_remove_message', __( 'В список желаний ничего не добавлено', 'yith-woocommerce-wishlist' ), $wishlist ) ); ?></div>
+			</div>
 		<?php
-	endif;
+		endif;
 
-	if ( ! empty( $page_links ) ) :
+		if ( ! empty( $page_links ) ) :
 		?>
-		<p class="pagination-row">
-			<?php echo $page_links; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-		</p>
-	<?php endif; ?>
+			<div class="pagination-row wishlist-pagination">
+				<div><?php echo $page_links; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+			</div>
+		<?php endif ?>
 
 	</div>
-
-<?php if ( ! empty( $page_links ) ) : ?>
-	<nav class="wishlist-pagination">
-		<?php echo $page_links; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-	</nav>
-<?php endif; ?>

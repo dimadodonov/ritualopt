@@ -66,6 +66,12 @@
 
     &-logo {
         margin: 25px 0;
+
+        img {
+            @include lg-block() {
+                width: 300px;
+            }
+        }
     }
 
     &-contacts {

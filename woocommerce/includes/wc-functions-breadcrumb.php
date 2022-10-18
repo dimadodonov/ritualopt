@@ -13,12 +13,12 @@ add_action( 'woocommerce_before_main_content','wrap_breadcrumb_after', 25, 0);
 
 if (!function_exists('wrap_breadcrumb_before') ) {
     function wrap_breadcrumb_before() {
-        echo '<div class="woocommerce-breadcrumb__wrap"><div class="container">';
+        echo '<div class="woocommerce-breadcrumb__wrap">';
     }
 }
 if (!function_exists('wrap_breadcrumb_after') ) {
     function wrap_breadcrumb_after() {
-        echo '</div></div>';
+        echo '</div>';
     }
 }
 

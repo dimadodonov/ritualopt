@@ -11,12 +11,12 @@ if ( ! defined( 'ABSPATH')) {
 add_action( 'wp_enqueue_scripts', 'mi_style' );
 function mi_style() {
     $css_update_time = filemtime(get_stylesheet_directory(). '/assets/css/app.min.css');
-    wp_enqueue_style( 'main-style', get_template_directory_uri() . '/assets/css/app.min.css', array(), $css_update_time, 'all' );
+    wp_enqueue_style( 'main-style', get_template_directory_uri() . '/assets/css/app.min.css?ver=18.10.22', array(), $css_update_time, 'all' );
 }
 
 add_action( 'wp_enqueue_scripts', 'mi_scripts' );
 function mi_scripts() {
-    wp_enqueue_script( 'app-js', get_template_directory_uri() . '/assets/js/app.min.js', array(), null, true );
+    wp_enqueue_script( 'app-js', get_template_directory_uri() . '/assets/js/app.min.js?ver=18.10.22', array(), null, true );
     wp_localize_script('app-js', 'search_form', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
         'nonce' => wp_create_nonce('search-nonce')

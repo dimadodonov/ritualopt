@@ -6,26 +6,13 @@ export default () => {
     }
 
     const galleryThumbs = new Swiper('.product-slider-thumbs', {
-        spaceBetween: 16,
-        slidesPerView: 'auto',
+        spaceBetween: 13,
+        slidesPerView: 4,
         freeMode: true,
+        direction: 'vertical',
         watchSlidesVisibility: true,
         watchSlidesProgress: true,
         autoHeight: true, //enable auto height
-        breakpoints: {
-            // when window width is >= 320px
-            320: {
-                spaceBetween: 10,
-            },
-            // when window width is >= 480px
-            480: {
-                spaceBetween: 10,
-            },
-            // when window width is >= 640px
-            640: {
-                spaceBetween: 16,
-            },
-        },
     });
     const galleryTop = new Swiper('.product-slider', {
         spaceBetween: 0,

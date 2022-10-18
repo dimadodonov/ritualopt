@@ -143,7 +143,7 @@
             position: fixed;
             top: 50%;
             left: 50%;
-            z-index: 990;
+            z-index: 9990;
             width: 52px;
             height: 52px;
             transform: translate(-50%, -50%);
@@ -203,8 +203,25 @@
             background-color: #fff;
             box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.1);
 
+            @include lg-block() {
+                padding: 50px 20px;
+            }
+
             @include xs-block() {
+                top: 0;
                 padding: 20px 0 0;
+                transform: translate(-50%, 0);
+                -ms-overflow-style: none;
+
+                /* IE and Edge */
+
+                scrollbar-width: none;
+
+                /* Firefox */
+            }
+
+            &::-webkit-scrollbar {
+                display: none;
             }
 
             .product__wrap {
@@ -215,6 +232,17 @@
                 @include xs-block() {
                     height: 100vh;
                     overflow-y: auto;
+                    -ms-overflow-style: none;
+
+                    /* IE and Edge */
+
+                    scrollbar-width: none;
+
+                    /* Firefox */
+                }
+
+                &::-webkit-scrollbar {
+                    display: none;
                 }
             }
 

@@ -46,13 +46,13 @@ get_header();
 							</div>
 							<div class="page-contacts__inner">
 								<div class="social">
-									<a class="social__item whatsapp" href="" target="_blank">
+									<a class="social__item whatsapp" href="https://wa.me/79260400495" target="_blank">
 										<svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--social-whatsapp"></use></svg>
 									</a>
-									<a class="social__item telegram" href="" target="_blank">
+									<a class="social__item telegram" href="https://t.me/+79260400495" target="_blank">
 										<svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--social-telegram"></use></svg>
 									</a>
-									<a class="social__item viber" href="" target="_blank">
+									<a class="social__item viber" href="viber://chat?number=+79260400495" target="_blank">
 										<svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/files/sprite.svg#icon--social-viber"></use></svg>
 									</a>
 								</div>

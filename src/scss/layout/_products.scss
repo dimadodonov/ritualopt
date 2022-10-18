@@ -29,6 +29,10 @@
         @include xs-block() {
             margin-left: 0;
         }
+
+        .single & {
+            margin-left: 0;
+        }
     }
 
     &__loop {
