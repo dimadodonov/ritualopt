@@ -84,6 +84,11 @@
         width: 24px;
         height: 24px;
         transform: translate(-50%, -50%);
+
+        @include xs-block() {
+            width: 16px;
+            height: 16px;
+        }
     }
 
     &__item {
@@ -94,6 +99,11 @@
         background: $color-accent;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 
+        @include xs-block() {
+            width: 52px;
+            height: 52px;
+        }
+
         & + & {
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
@@ -103,6 +113,11 @@
             height: 24px;
             fill: #fff;
             color: #fff;
+
+            @include xs-block() {
+                width: 16px;
+                height: 16px;
+            }
         }
 
         .count {
@@ -120,6 +135,12 @@
             color: #fff;
             font-size: 8px;
             line-height: 7px;
+
+            @include xs-block() {
+                width: 12px;
+                height: 12px;
+                font-size: 6px;
+            }
 
             &.active {
                 opacity: 1;

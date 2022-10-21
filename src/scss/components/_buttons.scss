@@ -78,6 +78,11 @@
             font-family: $f-medium;
             font-size: 16px;
             line-height: 150%;
+
+            @include xs-block() {
+                font-size: 14px;
+                white-space: nowrap;
+            }
         }
 
         &.loading {
