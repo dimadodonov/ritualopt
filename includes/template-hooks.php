@@ -35,4 +35,4 @@ add_action( 'hook_home', 'hook_page_after',                     80 );
  */
 
 add_action( 'hook_footer', 'hook_footer',                       30 );
-add_action( 'hook_footer', 'hook_fixed_btn',                       30 );
+// add_action( 'hook_footer', 'hook_fixed_btn',                       30 );
