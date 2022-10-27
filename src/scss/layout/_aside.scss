@@ -53,14 +53,14 @@
             a {
                 display: block;
                 margin: 0 15px;
-                padding: 30px 20px;
+                padding: 22px 20px;
                 color: #fff;
                 font-family: $f-medium;
                 font-size: 20px;
                 line-height: 120%;
 
                 @include lg-block() {
-                    padding: 21px 15px;
+                    padding: 19px 15px;
                     font-size: 18px;
                 }
             }
