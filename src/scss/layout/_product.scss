@@ -342,17 +342,11 @@
 
         @include xs-block() {
             width: 100%;
-            margin-left: 0;
         }
 
         &-big {
             min-width: 463px;
             min-height: 463px;
-
-            @include lg-block() {
-                min-width: 320px;
-                min-height: 320px;
-            }
 
             @include xs-block() {
                 min-width: auto;
@@ -681,13 +675,13 @@
         display: flex;
         align-items: center;
 
-        @include xs-block() {
+        @include lg-block() {
             flex-wrap: wrap;
             margin: 20px 0 50px;
         }
 
         .btn-order {
-            @include xs-block() {
+            @include lg-block() {
                 width: 100%;
                 max-width: 100%;
                 margin: 20px 0;
